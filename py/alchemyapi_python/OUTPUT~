@@ -1,0 +1,964 @@
+
+
+            ,                                                                                                                              
+      .I7777~                                                                                                                              
+     .I7777777                                                                                                                             
+   +.  77777777                                                                                                                            
+ =???,  I7777777=                                                                                                                          
+=??????   7777777?   ,:::===?                                                                                                              
+=???????.  777777777777777777~         .77:    ??           :7                                              =$,     :$$$$$$+  =$?          
+ ????????: .777777777777777777         II77    ??           :7                                              $$7     :$?   7$7 =$?          
+  .???????=  +7777777777777777        .7 =7:   ??   :7777+  :7:I777?    ?777I=  77~777? ,777I I7      77   +$?$:    :$?    $$ =$?          
+    ???????+  ~777???+===:::         :7+  ~7   ?? .77    +7 :7?.   II  7~   ,I7 77+   I77   ~7 ?7    =7:  .$, =$    :$?  ,$$? =$?          
+    ,???????~                        77    7:  ?? ?I.     7 :7     :7 ~7      7 77    =7:    7  7    7~   7$   $=   :$$$$$$~  =$?          
+    .???????  ,???I77777777777~     :77777777~ ?? 7:        :7     :7 777777777:77    =7     7  +7  ~7   $$$$$$$$I  :$?       =$?          
+   .???????  ,7777777777777777      7=      77 ?? I+      7 :7     :7 ??      7,77    =7     7   7~ 7,  =$7     $$, :$?       =$?          
+  .???????. I77777777777777777     +7       ,7???  77    I7 :7     :7  7~   .?7 77    =7     7   ,77I   $+       7$ :$?       =$?          
+ ,???????= :77777777777777777~     7=        ~7??  ~I77777  :7     :7  ,777777. 77    =7     7    77,  +$        .$::$?       =$?          
+,???????  :7777777                                                                                77                                       
+ =?????  ,7777777                                                                               77=                                        
+   +?+  7777777?                                                                                                                           
+    +  ~7777777                                                                                                                            
+       I777777                                                                                                                             
+          :~                                                                                                                               
+
+
+############################################
+#   Entity Extraction Example              #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Response Object ##
+{
+    "status": "OK", 
+    "totalTransactions": "2", 
+    "language": "english", 
+    "url": "", 
+    "entities": [
+        {
+            "relevance": "0.884345", 
+            "count": "1", 
+            "type": "FieldTerminology", 
+            "sentiment": {
+                "score": "-0.582727", 
+                "type": "negative"
+            }, 
+            "text": "Apple Store"
+        }, 
+        {
+            "relevance": "0.728395", 
+            "count": "1", 
+            "type": "Technology", 
+            "sentiment": {
+                "score": "-0.508233", 
+                "type": "negative"
+            }, 
+            "text": "iPhone"
+        }, 
+        {
+            "count": "1", 
+            "sentiment": {
+                "score": "-0.508233", 
+                "type": "negative"
+            }, 
+            "disambiguated": {
+                "website": "http://www.denvergov.org", 
+                "subType": [
+                    "AdministrativeDivision", 
+                    "PlaceWithNeighborhoods", 
+                    "USCounty"
+                ], 
+                "dbpedia": "http://dbpedia.org/resource/Denver", 
+                "name": "Denver", 
+                "freebase": "http://rdf.freebase.com/ns/m.02cl1"
+            }, 
+            "text": "Denver", 
+            "relevance": "0.624176", 
+            "type": "City"
+        }, 
+        {
+            "relevance": "0.617745", 
+            "count": "1", 
+            "type": "Person", 
+            "sentiment": {
+                "score": "-0.508233", 
+                "type": "negative"
+            }, 
+            "text": "Bob"
+        }, 
+        {
+            "relevance": "0.533694", 
+            "count": "1", 
+            "type": "StateOrCounty", 
+            "sentiment": {
+                "type": "neutral"
+            }, 
+            "text": "Colorado"
+        }
+    ], 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html"
+}
+
+## Entities ##
+text:  Apple Store
+type:  FieldTerminology
+relevance:  0.884345
+sentiment:  negative
+sentiment score: -0.582727
+
+text:  iPhone
+type:  Technology
+relevance:  0.728395
+sentiment:  negative
+sentiment score: -0.508233
+
+text:  Denver
+type:  City
+relevance:  0.624176
+sentiment:  negative
+sentiment score: -0.508233
+
+text:  Bob
+type:  Person
+relevance:  0.617745
+sentiment:  negative
+sentiment score: -0.508233
+
+text:  Colorado
+type:  StateOrCounty
+relevance:  0.533694
+sentiment:  neutral
+
+
+
+
+############################################
+#   Keyword Extraction Example             #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "keywords": [
+        {
+            "relevance": "0.983037", 
+            "text": "fancy iPhone", 
+            "sentiment": {
+                "score": "-0.508233", 
+                "type": "negative"
+            }
+        }, 
+        {
+            "relevance": "0.904227", 
+            "text": "dumb Bob", 
+            "sentiment": {
+                "score": "-0.508233", 
+                "type": "negative"
+            }
+        }, 
+        {
+            "relevance": "0.835704", 
+            "text": "beautiful Denver", 
+            "sentiment": {
+                "score": "-0.508233", 
+                "type": "negative"
+            }
+        }, 
+        {
+            "relevance": "0.721868", 
+            "text": "Apple Store", 
+            "sentiment": {
+                "score": "-0.582727", 
+                "type": "negative"
+            }
+        }, 
+        {
+            "relevance": "0.38689", 
+            "text": "Colorado", 
+            "sentiment": {
+                "type": "neutral"
+            }
+        }
+    ], 
+    "totalTransactions": "2", 
+    "language": "english"
+}
+
+## Keywords ##
+text:  fancy iPhone
+relevance:  0.983037
+sentiment:  negative
+sentiment score: -0.508233
+
+text:  dumb Bob
+relevance:  0.904227
+sentiment:  negative
+sentiment score: -0.508233
+
+text:  beautiful Denver
+relevance:  0.835704
+sentiment:  negative
+sentiment score: -0.508233
+
+text:  Apple Store
+relevance:  0.721868
+sentiment:  negative
+sentiment score: -0.582727
+
+text:  Colorado
+relevance:  0.38689
+sentiment:  neutral
+
+
+
+
+############################################
+#   Concept Tagging Example                #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "url": "", 
+    "language": "english", 
+    "concepts": [
+        {
+            "relevance": "0.932431", 
+            "text": "Apple Store", 
+            "website": "http://www.apple.com/retail/", 
+            "dbpedia": "http://dbpedia.org/resource/Apple_Store", 
+            "freebase": "http://rdf.freebase.com/ns/m.02hwrl"
+        }, 
+        {
+            "website": "http://www.apple.com/", 
+            "yago": "http://yago-knowledge.org/resource/Apple_Inc.", 
+            "text": "Apple Inc.", 
+            "opencyc": "http://sw.opencyc.org/concept/Mx4rvVjfjpwpEbGdrcN5Y29ycA", 
+            "crunchbase": "http://www.crunchbase.com/company/apple", 
+            "dbpedia": "http://dbpedia.org/resource/Apple_Inc.", 
+            "freebase": "http://rdf.freebase.com/ns/m.0k8z", 
+            "relevance": "0.891859"
+        }, 
+        {
+            "website": "http://www.msnbc.msn.com/id/15262121/site/newsweek/", 
+            "yago": "http://yago-knowledge.org/resource/Steve_Jobs", 
+            "text": "Steve Jobs", 
+            "dbpedia": "http://dbpedia.org/resource/Steve_Jobs", 
+            "freebase": "http://rdf.freebase.com/ns/m.06y3r", 
+            "relevance": "0.844774"
+        }, 
+        {
+            "relevance": "0.750762", 
+            "text": "English-language films", 
+            "dbpedia": "http://dbpedia.org/resource/English-language_films"
+        }, 
+        {
+            "relevance": "0.598701", 
+            "text": "IPhone", 
+            "yago": "http://yago-knowledge.org/resource/IPhone", 
+            "dbpedia": "http://dbpedia.org/resource/IPhone", 
+            "freebase": "http://rdf.freebase.com/ns/m.027lnzs"
+        }, 
+        {
+            "relevance": "0.598437", 
+            "text": "App Store", 
+            "website": "http://www.apple.com/iphone/appstore", 
+            "dbpedia": "http://dbpedia.org/resource/App_Store"
+        }, 
+        {
+            "relevance": "0.586845", 
+            "text": "Front Range Urban Corridor", 
+            "yago": "http://yago-knowledge.org/resource/Front_Range_Urban_Corridor", 
+            "dbpedia": "http://dbpedia.org/resource/Front_Range_Urban_Corridor", 
+            "freebase": "http://rdf.freebase.com/ns/m.026v8xy"
+        }
+    ]
+}
+
+## Concepts ##
+text:  Apple Store
+relevance:  0.932431
+
+text:  Apple Inc.
+relevance:  0.891859
+
+text:  Steve Jobs
+relevance:  0.844774
+
+text:  English-language films
+relevance:  0.750762
+
+text:  IPhone
+relevance:  0.598701
+
+text:  App Store
+relevance:  0.598437
+
+text:  Front Range Urban Corridor
+relevance:  0.586845
+
+
+
+
+############################################
+#   Sentiment Analysis Example             #
+############################################
+
+
+Processing html:  <html><head><title>Python Demo | AlchemyAPI</title></head><body><h1>Did you know that AlchemyAPI works on HTML?</h1><p>Well, you do now.</p></body></html>
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "totalTransactions": "1", 
+    "docSentiment": {
+        "score": "0.447886", 
+        "type": "positive"
+    }, 
+    "language": "english"
+}
+
+## Document Sentiment ##
+type:  positive
+score:  0.447886
+
+
+
+############################################
+#   Targeted Sentiment Analysis Example    #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "totalTransactions": "1", 
+    "docSentiment": {
+        "score": "-0.508233", 
+        "type": "negative"
+    }, 
+    "language": "english"
+}
+
+## Targeted Sentiment ##
+type:  negative
+score:  -0.508233
+
+
+
+############################################
+#   Text Extraction Example                #
+############################################
+
+
+Processing url:  http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "url": "http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen", 
+    "language": "english", 
+    "text": "If there's one Thanksgiving mistake Jack Bishop sees more than any other, it's people rushing to carve their birds. Bishop is editorial director of the public TV series America's Test Kitchen. He tells Fresh Air's Terry Gross, \"Turkey needs to rest before you carve it ... and a lot fewer juices will end up on the carving board.\"\nBishop and Bridget Lancaster, also of America's Test Kitchen, share their tips for buying, seasoning and cooking a turkey, and describe some of their favorite side dishes.\nOn buying, seasoning and carving your turkey\nLancaster: Don't buy too big of a bird \u2014 12 to 14 pounds is kind of the limit. Any larger than that and you're going to have a really big problem cooking it evenly because ... the breast meat tends to cook a lot faster than the dark meat. And it's also a problem of mechanics: It's really hard to get a 20-pound turkey into some of the more modern ovens. ...\nAfter that, it's really making sure you season the turkey. We like natural turkeys, ones that aren't pre-brined or injected, so you either want to brine it \u2014 soak the turkey in saltwater solution \u2014 or you can rub salt under the skin. And that really, along with time, helps to season the turkey well. You do want to let either the brine or the salt rub do its job. Salting takes a bit more time. ... Twenty-four hours is a good period of time to wait. ... It slowly seasons it.\nBreast meat is great when it's salted because it tends to hang on [to] its moisture a bit more, so it gives you a window or an error cushion.\nBishop: There's a rush to carve. Turkey needs to rest before you carve it. If you're using a small bird like Bridget suggests ... it's maybe 30 minutes. If you've got a larger bird, maybe 40 minutes. And there [are] two things that you're doing: One is it's much simpler to carve a bird that's not scorching hot; the second thing is you're letting the muscle fibers relax so that they can hold onto more of those juices.\nOn getting crispy skin on your turkey \nLancaster: One way is we rub the skin with a mixture of salt and pepper and a little bit of baking powder. And the baking powder seems very odd, but it actually is starting to dry out the surface just a little bit, ... that and loosening the skin and getting some of the seasoning under the skin. You can finish it off at a pretty high temperature just to give it a nice final blast of heat that will give it really nice crisp skin.\nOn not stuffing your turkey\nBishop: Instead, put the stuffing in a dish \u2014 but then it becomes \"dressing,\" if you want to be technical about it. The problem is, when you stuff the turkey, yes, the stuffing gets all of the wonderful flavors from the bird, but it makes it much more difficult to cook the bird. It cooks a lot more slowly and unevenly, and obviously if you've got vegetarians then they're not going to eat the stuffing. So I always do it in buttered baked dishes and cover it with foil for most of the cooking ... usually about 30 to 40 minutes until it's warm, and then take off the foil so the top can crisp up, and it's absolutely delicious. ...\nIf you want to stuff your bird, you should actually microwave the stuffing, and then you put hot stuffing inside the turkey. It's a bit of chore, frankly, but that's the best way, if you actually are going to cook a stuffed bird, is to begin with fairly hot stuffing. You want to get it to about 120 to 130 degrees, so you don't have quite that problem with ice cold stuffing slowing down the whole process.\nOn sweet potatoes\nLancaster: You can't cook them like regular potatoes. They contain a lot more water ... so if you boil them in lots of liquid you end up with sweet potatoes that have fallen apart, sweet potatoes that are very soggy. They don't have that fluffy texture.\nSo we actually braise sweet potatoes. You slice sweet potatoes very thin, about a quarter inch, and you put them in a saucepan, or you can double the recipe and put them in a Dutch oven. And just a few tablespoons of heavy cream, a couple pats of butter, and you cook it over low for a good 35 minutes or so until the potatoes are very, very tender. ... You simply mash them [and] season them with a little salt and pepper.\nOn mashed potatoes\nBishop: A recipe I really like to make has some bold Spanish flavors in it. So it's the traditional mashed potatoes and, in the test kitchen, we think you should boil whole russet potatoes still with the skins on. And the reason that you're doing that is you don't want them to soak up more water than is necessary, because you want them later on to soak up a lot of delicious half-and-half. ... Cook 30 to 40 minutes, ... drain them, let them cool a little bit, and then you need to peel them. ...\nRather than just adding plain old butter and half-and-half, I like to add some smoked paprika and some toasted garlic that I've already cooked in the butter first; and stir those into the potatoes, then add a little more warm half-and-half. A lot of people add cold cream at the end, and then you end up with cold mashed potatoes. Warm that half-and-half, a little salt and pepper.\nA great trick if you're the kind of person that doesn't want to be doing this right before dinner, is to then put it in the slow cooker on low, and you can let the mashed potatoes hang out for an hour or two in the slow cooker while you get everything else ready for dinner.\n(Serves 4)\nRusset potatoes make fluffier mashed potatoes, but Yukon golds have an appealing buttery flavor and can be used.\n2 pounds russet potatoes, unpeeled\n 8 tablespoons unsalted butter, melted\n 1 cup warm half-and-half\n 1 1/2 teaspoons salt\n Pepper\n1. Place potatoes in large saucepan and cover with 1 inch cold water. Bring to boil over high heat, reduce heat to medium-low, and simmer until potatoes are just tender (paring knife can be slipped in and out of potatoes with little resistance), 20 to 30 minutes. Drain.\n2. Set ricer or food mill over now-empty saucepan. Using potholder or folded dish towel (to hold potatoes) and paring knife, peel skins from potatoes. Working in batches, cut peeled potatoes into large chunks and press or mill into saucepan.\n3. Stir in butter until incorporated. Gently whisk in half-and-half, add salt, and season with pepper to taste. Serve.\nThe extra steps in this variation are worth the trouble.\nWhile potatoes are simmering, toast 1 teaspoon smoked paprika in 8-inch skillet over medium heat, stirring frequently, until fragrant, about 2 minutes. Transfer to small bowl; set aside. Melt 8 tablespoons butter in small saucepan over medium-low heat. Add 3 minced garlic cloves, reduce heat to low, and cook, stirring frequently, until garlic begins to brown, 12 to 14 minutes. Remove saucepan from heat immediately and set aside for 5 minutes (garlic will continue to brown). Pour butter-garlic mixture through fine-mesh strainer; reserve butter and set toasted garlic aside. Rice or mill potatoes as directed, then stir butter into potatoes until just incorporated. Season potatoes with toasted paprika, 1 1/2 teaspoons salt, and 1/2 teaspoon pepper. Add warm half-and-half and stir until just combined. Serve immediately, sprinkling with reserved toasted garlic.\nCourtesy of America's Test Kitchen\n(Makes 16 bars)\nWhy this recipe works: Pecan bars often suffer the same problems as their pie counterpart. To avoid an overly sweet filling, we added a hefty amount of vanilla as well as a hit of bourbon (rum works, too) and plenty of salt. For a shortbread-like crust, the food processor not only made the mixing easy but also ensured we didn't overheat the butter. Adding nuts to the crust gave it appealing texture that was a good contrast to the filling. Partially baking the crust before adding the filling (as well as the requisite pecans) and returning the pan to the oven gave us a crust with the best texture and a deeper flavor.\nYou can substitute dark rum for the bourbon if desired.\nCrust:\n1 cup (5 ounces) all-purpose flour\n 1/3 cup packed (2 1/3 ounces) light brown sugar\n 1/4 cup pecans, toasted and chopped coarse\n 1 teaspoon salt\n 1/4 teaspoon baking powder\n 6 tablespoons unsalted butter, cut into 1/2\u2011inch pieces and chilled\nFilling:\n1/2 cup packed (3 1/2 ounces) light brown sugar\n 1/3 cup light corn syrup\n 4 tablespoons unsalted butter, melted and cooled\n 1 tablespoon bourbon\n 2 teaspoons vanilla extract\n 1/2 teaspoon salt\n 1 large egg\n 1 3/4 cups pecans, chopped coarse\n1. For the crust: Adjust oven rack to middle position and heat oven to 350 degrees. Make foil sling by folding two long sheets of aluminum foil so that they are as wide as 8\u2011inch square baking pan. Lay sheets of foil in pan perpendicular to one another, with extra foil hanging over edges of pan. Push foil into corners and up sides of pan, smoothing foil flush to pan. Grease foil and set aside.\n2. Process flour, sugar, pecans, salt, and baking powder together in food processor until combined, about five pulses. Sprinkle butter over top and pulse until mixture is pale yellow and resembles coarse cornmeal, about eight pulses.\n3. Sprinkle mixture into prepared pan and press into even layer with bottom of measuring cup. Bake crust until fragrant and beginning to brown, 20 to 24 minutes.\n4. For the filling: Meanwhile, whisk sugar, corn syrup, melted butter, bourbon, vanilla, and salt together in large bowl until sugar dissolves. Whisk in egg until combined.\n5. Spread filling evenly over crust and sprinkle with pecans. Bake bars until top is brown and cracks start to form across surface, 25 to 30 minutes, rotating pan halfway through baking.\n6. Set pan on wire rack and let bars cool completely, about two hours. Remove bars from pan using foil, cut into squares, and serve.\nCourtesy of America's Test Kitchen\n"
+}
+
+## Text ##
+text:  If there's one Thanksgiving mistake Jack Bishop sees more than any other, it's people rushing to carve their birds. Bishop is editorial director of the public TV series America's Test Kitchen. He tells Fresh Air's Terry Gross, "Turkey needs to rest before you carve it ... and a lot fewer juices will end up on the carving board."
+Bishop and Bridget Lancaster, also of America's Test Kitchen, share their tips for buying, seasoning and cooking a turkey, and describe some of their favorite side dishes.
+On buying, seasoning and carving your turkey
+Lancaster: Don't buy too big of a bird — 12 to 14 pounds is kind of the limit. Any larger than that and you're going to have a really big problem cooking it evenly because ... the breast meat tends to cook a lot faster than the dark meat. And it's also a problem of mechanics: It's really hard to get a 20-pound turkey into some of the more modern ovens. ...
+After that, it's really making sure you season the turkey. We like natural turkeys, ones that aren't pre-brined or injected, so you either want to brine it — soak the turkey in saltwater solution — or you can rub salt under the skin. And that really, along with time, helps to season the turkey well. You do want to let either the brine or the salt rub do its job. Salting takes a bit more time. ... Twenty-four hours is a good period of time to wait. ... It slowly seasons it.
+Breast meat is great when it's salted because it tends to hang on [to] its moisture a bit more, so it gives you a window or an error cushion.
+Bishop: There's a rush to carve. Turkey needs to rest before you carve it. If you're using a small bird like Bridget suggests ... it's maybe 30 minutes. If you've got a larger bird, maybe 40 minutes. And there [are] two things that you're doing: One is it's much simpler to carve a bird that's not scorching hot; the second thing is you're letting the muscle fibers relax so that they can hold onto more of those juices.
+On getting crispy skin on your turkey 
+Lancaster: One way is we rub the skin with a mixture of salt and pepper and a little bit of baking powder. And the baking powder seems very odd, but it actually is starting to dry out the surface just a little bit, ... that and loosening the skin and getting some of the seasoning under the skin. You can finish it off at a pretty high temperature just to give it a nice final blast of heat that will give it really nice crisp skin.
+On not stuffing your turkey
+Bishop: Instead, put the stuffing in a dish — but then it becomes "dressing," if you want to be technical about it. The problem is, when you stuff the turkey, yes, the stuffing gets all of the wonderful flavors from the bird, but it makes it much more difficult to cook the bird. It cooks a lot more slowly and unevenly, and obviously if you've got vegetarians then they're not going to eat the stuffing. So I always do it in buttered baked dishes and cover it with foil for most of the cooking ... usually about 30 to 40 minutes until it's warm, and then take off the foil so the top can crisp up, and it's absolutely delicious. ...
+If you want to stuff your bird, you should actually microwave the stuffing, and then you put hot stuffing inside the turkey. It's a bit of chore, frankly, but that's the best way, if you actually are going to cook a stuffed bird, is to begin with fairly hot stuffing. You want to get it to about 120 to 130 degrees, so you don't have quite that problem with ice cold stuffing slowing down the whole process.
+On sweet potatoes
+Lancaster: You can't cook them like regular potatoes. They contain a lot more water ... so if you boil them in lots of liquid you end up with sweet potatoes that have fallen apart, sweet potatoes that are very soggy. They don't have that fluffy texture.
+So we actually braise sweet potatoes. You slice sweet potatoes very thin, about a quarter inch, and you put them in a saucepan, or you can double the recipe and put them in a Dutch oven. And just a few tablespoons of heavy cream, a couple pats of butter, and you cook it over low for a good 35 minutes or so until the potatoes are very, very tender. ... You simply mash them [and] season them with a little salt and pepper.
+On mashed potatoes
+Bishop: A recipe I really like to make has some bold Spanish flavors in it. So it's the traditional mashed potatoes and, in the test kitchen, we think you should boil whole russet potatoes still with the skins on. And the reason that you're doing that is you don't want them to soak up more water than is necessary, because you want them later on to soak up a lot of delicious half-and-half. ... Cook 30 to 40 minutes, ... drain them, let them cool a little bit, and then you need to peel them. ...
+Rather than just adding plain old butter and half-and-half, I like to add some smoked paprika and some toasted garlic that I've already cooked in the butter first; and stir those into the potatoes, then add a little more warm half-and-half. A lot of people add cold cream at the end, and then you end up with cold mashed potatoes. Warm that half-and-half, a little salt and pepper.
+A great trick if you're the kind of person that doesn't want to be doing this right before dinner, is to then put it in the slow cooker on low, and you can let the mashed potatoes hang out for an hour or two in the slow cooker while you get everything else ready for dinner.
+(Serves 4)
+Russet potatoes make fluffier mashed potatoes, but Yukon golds have an appealing buttery flavor and can be used.
+2 pounds russet potatoes, unpeeled
+ 8 tablespoons unsalted butter, melted
+ 1 cup warm half-and-half
+ 1 1/2 teaspoons salt
+ Pepper
+1. Place potatoes in large saucepan and cover with 1 inch cold water. Bring to boil over high heat, reduce heat to medium-low, and simmer until potatoes are just tender (paring knife can be slipped in and out of potatoes with little resistance), 20 to 30 minutes. Drain.
+2. Set ricer or food mill over now-empty saucepan. Using potholder or folded dish towel (to hold potatoes) and paring knife, peel skins from potatoes. Working in batches, cut peeled potatoes into large chunks and press or mill into saucepan.
+3. Stir in butter until incorporated. Gently whisk in half-and-half, add salt, and season with pepper to taste. Serve.
+The extra steps in this variation are worth the trouble.
+While potatoes are simmering, toast 1 teaspoon smoked paprika in 8-inch skillet over medium heat, stirring frequently, until fragrant, about 2 minutes. Transfer to small bowl; set aside. Melt 8 tablespoons butter in small saucepan over medium-low heat. Add 3 minced garlic cloves, reduce heat to low, and cook, stirring frequently, until garlic begins to brown, 12 to 14 minutes. Remove saucepan from heat immediately and set aside for 5 minutes (garlic will continue to brown). Pour butter-garlic mixture through fine-mesh strainer; reserve butter and set toasted garlic aside. Rice or mill potatoes as directed, then stir butter into potatoes until just incorporated. Season potatoes with toasted paprika, 1 1/2 teaspoons salt, and 1/2 teaspoon pepper. Add warm half-and-half and stir until just combined. Serve immediately, sprinkling with reserved toasted garlic.
+Courtesy of America's Test Kitchen
+(Makes 16 bars)
+Why this recipe works: Pecan bars often suffer the same problems as their pie counterpart. To avoid an overly sweet filling, we added a hefty amount of vanilla as well as a hit of bourbon (rum works, too) and plenty of salt. For a shortbread-like crust, the food processor not only made the mixing easy but also ensured we didn't overheat the butter. Adding nuts to the crust gave it appealing texture that was a good contrast to the filling. Partially baking the crust before adding the filling (as well as the requisite pecans) and returning the pan to the oven gave us a crust with the best texture and a deeper flavor.
+You can substitute dark rum for the bourbon if desired.
+Crust:
+1 cup (5 ounces) all-purpose flour
+ 1/3 cup packed (2 1/3 ounces) light brown sugar
+ 1/4 cup pecans, toasted and chopped coarse
+ 1 teaspoon salt
+ 1/4 teaspoon baking powder
+ 6 tablespoons unsalted butter, cut into 1/2‑inch pieces and chilled
+Filling:
+1/2 cup packed (3 1/2 ounces) light brown sugar
+ 1/3 cup light corn syrup
+ 4 tablespoons unsalted butter, melted and cooled
+ 1 tablespoon bourbon
+ 2 teaspoons vanilla extract
+ 1/2 teaspoon salt
+ 1 large egg
+ 1 3/4 cups pecans, chopped coarse
+1. For the crust: Adjust oven rack to middle position and heat oven to 350 degrees. Make foil sling by folding two long sheets of aluminum foil so that they are as wide as 8‑inch square baking pan. Lay sheets of foil in pan perpendicular to one another, with extra foil hanging over edges of pan. Push foil into corners and up sides of pan, smoothing foil flush to pan. Grease foil and set aside.
+2. Process flour, sugar, pecans, salt, and baking powder together in food processor until combined, about five pulses. Sprinkle butter over top and pulse until mixture is pale yellow and resembles coarse cornmeal, about eight pulses.
+3. Sprinkle mixture into prepared pan and press into even layer with bottom of measuring cup. Bake crust until fragrant and beginning to brown, 20 to 24 minutes.
+4. For the filling: Meanwhile, whisk sugar, corn syrup, melted butter, bourbon, vanilla, and salt together in large bowl until sugar dissolves. Whisk in egg until combined.
+5. Spread filling evenly over crust and sprinkle with pecans. Bake bars until top is brown and cracks start to form across surface, 25 to 30 minutes, rotating pan halfway through baking.
+6. Set pan on wire rack and let bars cool completely, about two hours. Remove bars from pan using foil, cut into squares, and serve.
+Courtesy of America's Test Kitchen
+
+
+
+
+
+############################################
+#   Author Extraction Example              #
+############################################
+
+
+Processing url:  http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "url": "http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen", 
+    "author": "Author Interviews"
+}
+
+## Author ##
+author:  Author Interviews
+
+
+
+
+############################################
+#   Language Detection Example             #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Response Object ##
+{
+    "status": "OK", 
+    "language": "english", 
+    "url": "", 
+    "iso-639-1": "en", 
+    "iso-639-2": "eng", 
+    "iso-639-3": "eng", 
+    "wikipedia": "http://en.wikipedia.org/wiki/English_language", 
+    "native-speakers": "309-400 million", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "ethnologue": "http://www.ethnologue.com/show_language.asp?code=eng"
+}
+
+## Language ##
+language:  english
+iso-639-1:  en
+native speakers:  309-400 million
+
+
+
+
+############################################
+#   Title Extraction Example               #
+############################################
+
+
+Processing url:  http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "url": "http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen", 
+    "title": "Don't Stuff The Turkey And Other Tips From 'America's Test Kitchen' : NPR"
+}
+
+## Title ##
+title:  Don't Stuff The Turkey And Other Tips From 'America's Test Kitchen' : NPR
+
+
+
+
+############################################
+#   Relation Extraction Example            #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "relations": [
+        {
+            "action": {
+                "text": "destroyed", 
+                "verb": {
+                    "text": "destroy", 
+                    "tense": "past"
+                }, 
+                "lemmatized": "destroy"
+            }, 
+            "subject": {
+                "text": "dumb Bob"
+            }, 
+            "location": {
+                "text": "in beautiful Denver, Colorado"
+            }, 
+            "object": {
+                "text": "my fancy iPhone"
+            }, 
+            "sentence": "Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado."
+        }, 
+        {
+            "action": {
+                "text": "guess", 
+                "verb": {
+                    "text": "guess", 
+                    "tense": "present"
+                }, 
+                "lemmatized": "guess"
+            }, 
+            "subject": {
+                "text": "I"
+            }, 
+            "object": {
+                "text": "I will have to head over to the Apple Store and buy a new one"
+            }, 
+            "sentence": " I guess I will have to head over to the Apple Store and buy a new one."
+        }, 
+        {
+            "action": {
+                "text": "will have to head", 
+                "verb": {
+                    "text": "head", 
+                    "tense": "future"
+                }, 
+                "lemmatized": "will have to head"
+            }, 
+            "subject": {
+                "text": "I"
+            }, 
+            "object": {
+                "text": "to the Apple Store"
+            }, 
+            "sentence": " I guess I will have to head over to the Apple Store and buy a new one."
+        }, 
+        {
+            "action": {
+                "text": "buy", 
+                "verb": {
+                    "text": "buy", 
+                    "tense": "present"
+                }, 
+                "lemmatized": "buy"
+            }, 
+            "subject": {
+                "text": "I"
+            }, 
+            "object": {
+                "text": "a new one"
+            }, 
+            "sentence": " I guess I will have to head over to the Apple Store and buy a new one."
+        }
+    ], 
+    "url": "", 
+    "language": "english"
+}
+
+## Relations ##
+Subject:  dumb Bob
+Action:  destroyed
+Object:  my fancy iPhone
+
+Subject:  I
+Action:  guess
+Object:  I will have to head over to the Apple Store and buy a new one
+
+Subject:  I
+Action:  will have to head
+Object:  to the Apple Store
+
+Subject:  I
+Action:  buy
+Object:  a new one
+
+
+
+
+############################################
+#   Text Categorization Example            #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Response Object ##
+{
+    "status": "OK", 
+    "category": "computer_internet", 
+    "language": "english", 
+    "url": "", 
+    "score": "0.590254", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html"
+}
+
+## Category ##
+text:  computer_internet
+score:  0.590254
+
+
+
+
+############################################
+#   Feed Detection Example                 #
+############################################
+
+
+Processing url:  http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "feeds": [
+        {
+            "feed": "http://www.npr.org/rss/rss.php?id=1053"
+        }
+    ], 
+    "url": "http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen"
+}
+
+## Feeds ##
+feed:  http://www.npr.org/rss/rss.php?id=1053
+
+
+
+
+
+############################################
+#   Microformats Parsing Example           #
+############################################
+
+
+Processing url:  http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "url": "http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen", 
+    "microformats": []
+}
+
+## Microformats ##
+
+
+
+
+
+############################################
+#   Image Extraction Example               #
+############################################
+
+
+Processing url:  http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "image": "http://media.npr.org/images/shop_300x150-04.jpg", 
+    "totalTransactions": "2", 
+    "url": "http://www.npr.org/2013/11/26/247336038/dont-stuff-the-turkey-and-other-tips-from-americas-test-kitchen"
+}
+
+## Image ##
+Image:  http://media.npr.org/images/shop_300x150-04.jpg
+
+
+
+
+
+
+############################################
+#   Image tagging Example                  #
+############################################
+
+
+Processing url:  http://demo1.alchemyapi.com/images/vision/football.jpg
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "imageKeywords": [
+        {
+            "text": "sport", 
+            "score": "0.989013"
+        }, 
+        {
+            "text": "football", 
+            "score": "0.985226"
+        }
+    ], 
+    "totalTransactions": "4", 
+    "url": "http://demo1.alchemyapi.com/images/vision/football.jpg"
+}
+
+## Keywords ##
+sport  :  0.989013
+football  :  0.985226
+
+
+
+
+
+
+############################################
+#   Taxonomy  Example                      #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Response Object ##
+{
+    "status": "OK", 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html", 
+    "totalTransactions": "1", 
+    "language": "english", 
+    "taxonomy": [
+        {
+            "score": "0.692631", 
+            "label": "/shopping/retail/online stores"
+        }, 
+        {
+            "confident": "no", 
+            "score": "0.212776", 
+            "label": "/technology and computing/consumer electronics/telephones/mobile phones/smart phones"
+        }, 
+        {
+            "confident": "no", 
+            "score": "0.14874", 
+            "label": "/style and fashion/clothing/pants"
+        }
+    ]
+}
+
+## Categories ##
+/shopping/retail/online stores  :  0.692631
+/technology and computing/consumer electronics/telephones/mobile phones/smart phones  :  0.212776
+/style and fashion/clothing/pants  :  0.14874
+
+
+
+
+
+
+############################################
+#   Combined  Example                      #
+############################################
+
+
+Processing text:  Yesterday dumb Bob destroyed my fancy iPhone in beautiful Denver, Colorado. I guess I will have to head over to the Apple Store and buy a new one.
+
+## Response Object ##
+{
+    "status": "OK", 
+    "totalTransactions": "4", 
+    "language": "english", 
+    "entities": [
+        {
+            "relevance": "0.884345", 
+            "count": "1", 
+            "type": "FieldTerminology", 
+            "text": "Apple Store"
+        }, 
+        {
+            "relevance": "0.728395", 
+            "count": "1", 
+            "type": "Technology", 
+            "text": "iPhone"
+        }, 
+        {
+            "relevance": "0.624176", 
+            "count": "1", 
+            "type": "City", 
+            "disambiguated": {
+                "website": "http://www.denvergov.org", 
+                "subType": [
+                    "AdministrativeDivision", 
+                    "PlaceWithNeighborhoods", 
+                    "USCounty"
+                ], 
+                "dbpedia": "http://dbpedia.org/resource/Denver", 
+                "name": "Denver", 
+                "freebase": "http://rdf.freebase.com/ns/m.02cl1"
+            }, 
+            "text": "Denver"
+        }, 
+        {
+            "relevance": "0.617745", 
+            "count": "1", 
+            "type": "Person", 
+            "text": "Bob"
+        }, 
+        {
+            "relevance": "0.533694", 
+            "count": "1", 
+            "type": "StateOrCounty", 
+            "text": "Colorado"
+        }
+    ], 
+    "taxonomy": [
+        {
+            "score": "0.692631", 
+            "label": "/shopping/retail/online stores"
+        }, 
+        {
+            "confident": "no", 
+            "score": "0.212776", 
+            "label": "/technology and computing/consumer electronics/telephones/mobile phones/smart phones"
+        }, 
+        {
+            "confident": "no", 
+            "score": "0.14874", 
+            "label": "/style and fashion/clothing/pants"
+        }
+    ], 
+    "keywords": [
+        {
+            "relevance": "0.983037", 
+            "text": "fancy iPhone"
+        }, 
+        {
+            "relevance": "0.904227", 
+            "text": "dumb Bob"
+        }, 
+        {
+            "relevance": "0.835704", 
+            "text": "beautiful Denver"
+        }, 
+        {
+            "relevance": "0.721868", 
+            "text": "Apple Store"
+        }, 
+        {
+            "relevance": "0.38689", 
+            "text": "Colorado"
+        }
+    ], 
+    "concepts": [
+        {
+            "relevance": "0.932431", 
+            "text": "Apple Store", 
+            "website": "http://www.apple.com/retail/", 
+            "dbpedia": "http://dbpedia.org/resource/Apple_Store", 
+            "freebase": "http://rdf.freebase.com/ns/m.02hwrl"
+        }, 
+        {
+            "website": "http://www.apple.com/", 
+            "yago": "http://yago-knowledge.org/resource/Apple_Inc.", 
+            "text": "Apple Inc.", 
+            "opencyc": "http://sw.opencyc.org/concept/Mx4rvVjfjpwpEbGdrcN5Y29ycA", 
+            "crunchbase": "http://www.crunchbase.com/company/apple", 
+            "dbpedia": "http://dbpedia.org/resource/Apple_Inc.", 
+            "freebase": "http://rdf.freebase.com/ns/m.0k8z", 
+            "relevance": "0.891859"
+        }, 
+        {
+            "website": "http://www.msnbc.msn.com/id/15262121/site/newsweek/", 
+            "yago": "http://yago-knowledge.org/resource/Steve_Jobs", 
+            "text": "Steve Jobs", 
+            "dbpedia": "http://dbpedia.org/resource/Steve_Jobs", 
+            "freebase": "http://rdf.freebase.com/ns/m.06y3r", 
+            "relevance": "0.844774"
+        }, 
+        {
+            "relevance": "0.750762", 
+            "text": "English-language films", 
+            "dbpedia": "http://dbpedia.org/resource/English-language_films"
+        }, 
+        {
+            "relevance": "0.598701", 
+            "text": "IPhone", 
+            "yago": "http://yago-knowledge.org/resource/IPhone", 
+            "dbpedia": "http://dbpedia.org/resource/IPhone", 
+            "freebase": "http://rdf.freebase.com/ns/m.027lnzs"
+        }, 
+        {
+            "relevance": "0.598437", 
+            "text": "App Store", 
+            "website": "http://www.apple.com/iphone/appstore", 
+            "dbpedia": "http://dbpedia.org/resource/App_Store"
+        }, 
+        {
+            "relevance": "0.586845", 
+            "text": "Front Range Urban Corridor", 
+            "yago": "http://yago-knowledge.org/resource/Front_Range_Urban_Corridor", 
+            "dbpedia": "http://dbpedia.org/resource/Front_Range_Urban_Corridor", 
+            "freebase": "http://rdf.freebase.com/ns/m.026v8xy"
+        }
+    ], 
+    "usage": "By accessing AlchemyAPI or using information generated by AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html"
+}
+
+## Keywords ##
+fancy iPhone  :  0.983037
+dumb Bob  :  0.904227
+beautiful Denver  :  0.835704
+Apple Store  :  0.721868
+Colorado  :  0.38689
+
+## Concepts ##
+Apple Store  :  0.932431
+Apple Inc.  :  0.891859
+Steve Jobs  :  0.844774
+English-language films  :  0.750762
+IPhone  :  0.598701
+App Store  :  0.598437
+Front Range Urban Corridor  :  0.586845
+
+## Entities ##
+FieldTerminology  :  Apple Store ,  0.884345
+Technology  :  iPhone ,  0.728395
+City  :  Denver ,  0.624176
+Person  :  Bob ,  0.617745
+StateOrCounty  :  Colorado ,  0.533694
+ 
+
+

@@ -1,0 +1,1 @@
+curl -k -u 474bf77c-0e50-4aca-a1ce-b3100f217aec:Nql0dzKQToEv  --header "Content-Type: application/json"  --header "Accept: audio/wav"  --data "{\"text\":\"The quick brown fox jumped over the lazy dog\"}"  "https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize"  hello_world.wav
