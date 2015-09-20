@@ -1,4 +1,4 @@
-from bottle import route, run, template, request, response
+from bottle import route, run, template, request, response, static_file
 import requests, json
 
 # https://alchemyapi.readme.io/v1.0/docs/rest-api-documentation
@@ -6,6 +6,21 @@ import requests, json
 ApiKey = '85e62ad889b1b15314bb96cf6387592215231fc5'
 MaxResults = 2
 Pfx = 'https://gateway-a.watsonplatform.net'
+
+def saveit(outfile,text):
+    import os
+    text = text.replace('"','')
+    cmd = """curl -k -u 474bf77c-0e50-4aca-a1ce-b3100f217aec:Nql0dzKQToEv  --header 'Content-Type: application/json'  --header 'Accept: audio/wav'  --data '{\"text\":\"%s\"}'  'https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize?voice=en-GB_KateVoice' >static/wav/%s.wav 2>/dev/null &""" % ( text, outfile, )
+    #print "CMD", cmd
+    os.system( cmd )
+    pass
+
+# PODCAST
+    
+@route('/static/<filename:path>')
+def send_static(filename):
+    print "BLAH"
+    return static_file(filename, root='./static/')
     
 @route('/top')
 def _():
@@ -20,7 +35,7 @@ def _():
     url = (Pfx + '/calls/data/GetNews?outputMode=json&start=now-1d&end=now&'+
            'count=5&'+
            'q.enriched.url.enrichedTitle.entities.entity=|text=%s|&'+
-           'return=enriched.url.url,enriched.url.title,enriched.url.text&'+
+           'return=enriched.url.url,enriched.url.title,enriched.url.text,enriched.url.entities&'+
            'maxResults=%s&apikey=%s') % (term,max_results,ApiKey,)
     r = requests.get(url, verify=False)
     #print r.text
@@ -45,7 +60,37 @@ def _():
         text  = unicode(rec["text"])
         text = text.encode('ascii','ignore')
         print '.', rec["text"]
+
+
+        text = text.replace("'", "")
+        text = text.replace("\"", "")
+        text = text.replace("<", "")
+        text = text.replace(">", "")
+        text = text.replace("\\", "")
+        text = text.replace("\r", "")
+        text = text.replace("\n", " ")
+        try:
+            print "ID", id
+            #print '  txt', (text)
+            #print '  txt', repr(text)
+            saveit( id, text )
+            #    pass
+        except:
+            print "FAIL", id, text
+            pass
+        pass
+
+
+
         #    print "-", x["source"]["enriched"]["url"]["title"]
+
+        entities = rec["entities"]
+        earr = []
+        print '    . . . ',entities
+        for e in entities:
+            print '  == ',e['text']
+            earr.append( e['text'] )
+            pass
         
         url2  = unicode(rec["url"])
 
@@ -63,7 +108,8 @@ def _():
         #title = ':'.join ( sarr[:-1] )
 
         #arr.append( dict( id=id, title=title, text=text ) )
-        arr.append( dict( id=id, title=title, url2=url2 ) )
+        #arr.append( dict( id=id, title=title, url2=url2 ) )
+        arr.append( dict( id=id, title=title, url2=url2, entities=earr ) )
 
         arr2.append( id )
         arr2.append( title )

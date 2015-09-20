@@ -12,12 +12,21 @@ import Foundation
 
 var newId = ""
 var entities : [String!] = []
+<<<<<<< HEAD
+=======
+
+class AudioPage: UIViewController {
+>>>>>>> origin/master
 
 class AudioPage: UIViewController {
     
     
     @IBOutlet weak var button: UIButton!
+<<<<<<< HEAD
     var audioPlayer: AVAudioPlayer?
+=======
+    var audioPlayer = AVQueuePlayer()
+>>>>>>> origin/master
     var curIndex = -1
     var selected = false
     
@@ -35,6 +44,7 @@ class AudioPage: UIViewController {
         //rewind.setImage(UIImage(named: "rewindButton"), forState: .Normal)
         //fastforward.setImage(UIImage(named: "fastforwardButton"), forState: .Normal)
         
+<<<<<<< HEAD
         var coinSound2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("laugh", ofType: "wav")!)
         
         //var derp = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("derp1", ofType: "mp3")!)
@@ -54,6 +64,16 @@ class AudioPage: UIViewController {
         //audioPlayer.volume = 1.0
         //audioPlayer.play()
         didSelectAudio(audioPlayer!)
+=======
+        rewind.setImage(UIImage(named: "rewindButton"), forState: .Normal)
+        fastforward.setImage(UIImage(named: "fastforwardButton"), forState: .Normal)
+        
+        
+        var coinSound2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("laugh", ofType: "wav")!)
+        
+        audioPlayer = AVQueuePlayer(playerItem: AVPlayerItem(URL: coinSound2))
+        didSelectAudio(audioPlayer)
+>>>>>>> origin/master
     }
     
     func didSelectAudio(audio: AVAudioPlayer){
@@ -85,13 +105,21 @@ class AudioPage: UIViewController {
     @IBAction func findMoreArticles(sender: AnyObject){
         
         println(first3Entities)
+<<<<<<< HEAD
+=======
+        
+>>>>>>> origin/master
         //println(entities)
         
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "displayEntities")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     @IBAction func back(sender: AnyObject) {
+<<<<<<< HEAD
         audioPlayer?.pause()
+=======
+        audioPlayer.pause()
+>>>>>>> origin/master
     }
     @IBAction func decreaseRate(sender: AnyObject) {
         

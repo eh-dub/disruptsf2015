@@ -18,7 +18,11 @@ import UIKit
 var titleToPass : [String] = []
 var idToPass : [String] = []
 var entityToPass : [String] = []
+<<<<<<< HEAD
 var counter = 0
+=======
+
+>>>>>>> origin/master
 var title_1 : String = ""
 
 class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate{
@@ -165,11 +169,17 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
             cell.titleNews.text = "what"
         }
         //cell.useText(indexPath.row + 1)
+<<<<<<< HEAD
         /*
         if(NSUserDefaults.standardUserDefaults().boolForKey("displayEntities") == true)
         {
             cell.titleNews.text = first3Entities[indexPath.row]
             println("hey")
+=======
+        if(NSUserDefaults.standardUserDefaults().boolForKey("displayEntities") == true)
+        {
+            //cell.titleNews.text = entities[indexPath.row]
+>>>>>>> origin/master
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "displayEntities")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
@@ -177,7 +187,10 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         {
             cell.titleNews.text = titleToPass[indexPath.row]
         }
+<<<<<<< HEAD
 */
+=======
+>>>>>>> origin/master
         //cell.headerImage.image=imageArr[indexPath.row]
         
         return cell
@@ -185,6 +198,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+<<<<<<< HEAD
         if(counter % 2 == 0)
         {
             titleToPass = []
@@ -221,6 +235,11 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
             newId = idToPass[indexPath.row]
             self.performSegueWithIdentifier("moveToAudioPage", sender: self)
         }
+=======
+        newId = idToPass[indexPath.row]
+        entities.append(entityToPass[indexPath.row])
+        self.performSegueWithIdentifier("moveToAudioPage", sender: self)
+>>>>>>> origin/master
         //Patrick, this is where you segue to the audio.
         /*
         let detail = self.storyboard?.instantiateViewControllerWithIdentifier("detail") as! DetailViewController
