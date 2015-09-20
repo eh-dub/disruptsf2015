@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21B9F8E81BAF06E400668DB0 /* derp1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21B9F8E71BAF06E400668DB0 /* derp1.mp3 */; };
 		21DFB7991BAE8B8000A9DC68 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFB7981BAE8B8000A9DC68 /* SwiftSpinner.swift */; };
 		21DFB7A71BAE8B9A00A9DC68 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFB79C1BAE8B9A00A9DC68 /* Alamofire.swift */; };
 		21DFB7A81BAE8B9A00A9DC68 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFB79D1BAE8B9A00A9DC68 /* Download.swift */; };
@@ -19,6 +20,7 @@
 		21DFB7AF1BAE8B9A00A9DC68 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFB7A41BAE8B9A00A9DC68 /* ServerTrustPolicy.swift */; };
 		21DFB7B01BAE8B9A00A9DC68 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFB7A51BAE8B9A00A9DC68 /* Upload.swift */; };
 		21DFB7B11BAE8B9A00A9DC68 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFB7A61BAE8B9A00A9DC68 /* Validation.swift */; };
+		21DFB7BB1BAEFECA00A9DC68 /* derp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DFB7BA1BAEFECA00A9DC68 /* derp.mp3 */; };
 		5561F4AA1B8C3DC700486A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561F4A91B8C3DC700486A57 /* AppDelegate.swift */; };
 		5561F4AC1B8C3DC700486A57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561F4AB1B8C3DC700486A57 /* ViewController.swift */; };
 		5561F4AF1B8C3DC700486A57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5561F4AD1B8C3DC700486A57 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		9D3AEEC81BAE9BC100A9272E /* baby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC51BAE9BC100A9272E /* baby.wav */; };
 		9D3AEEC91BAE9BC100A9272E /* laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC61BAE9BC100A9272E /* laugh.wav */; };
 		9D3AEECA1BAE9BC100A9272E /* fart.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC71BAE9BC100A9272E /* fart.wav */; };
+		9D3AEECC1BAED34D00A9272E /* Booleans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3AEECB1BAED34D00A9272E /* Booleans.swift */; };
+		9D3AEED81BAEDD4800A9272E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3AEED71BAEDD4800A9272E /* SwiftyJSON.swift */; };
 		9DD3F5F11BAE99690052C7D2 /* AudioPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21B9F8E71BAF06E400668DB0 /* derp1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = derp1.mp3; sourceTree = "<group>"; };
 		21DFB7981BAE8B8000A9DC68 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		21DFB79B1BAE8B9A00A9DC68 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
 		21DFB79C1BAE8B9A00A9DC68 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
@@ -84,6 +89,7 @@
 		21DFB7A41BAE8B9A00A9DC68 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		21DFB7A51BAE8B9A00A9DC68 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		21DFB7A61BAE8B9A00A9DC68 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		21DFB7BA1BAEFECA00A9DC68 /* derp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = derp.mp3; sourceTree = "<group>"; };
 		5561F4A41B8C3DC700486A57 /* MMGooglePlayNewsStand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMGooglePlayNewsStand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5561F4A81B8C3DC700486A57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5561F4A91B8C3DC700486A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 		9D3AEEC51BAE9BC100A9272E /* baby.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = baby.wav; sourceTree = "<group>"; };
 		9D3AEEC61BAE9BC100A9272E /* laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laugh.wav; sourceTree = "<group>"; };
 		9D3AEEC71BAE9BC100A9272E /* fart.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fart.wav; sourceTree = "<group>"; };
+		9D3AEECB1BAED34D00A9272E /* Booleans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booleans.swift; sourceTree = "<group>"; };
+		9D3AEED71BAEDD4800A9272E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPage.swift; path = ../AudioPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +181,8 @@
 		5561F49B1B8C3DC700486A57 = {
 			isa = PBXGroup;
 			children = (
+				21DFB7BA1BAEFECA00A9DC68 /* derp.mp3 */,
+				21B9F8E71BAF06E400668DB0 /* derp1.mp3 */,
 				5561F4A61B8C3DC700486A57 /* MMGooglePlayNewsStand */,
 				5561F4BC1B8C3DC700486A57 /* MMGooglePlayNewsStandTests */,
 				5561F4A51B8C3DC700486A57 /* Products */,
@@ -192,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				5585D5CC1B8DC4A400DB7D3F /* newststand.gif */,
+				9D3AEED71BAEDD4800A9272E /* SwiftyJSON.swift */,
 				21DFB7981BAE8B8000A9DC68 /* SwiftSpinner.swift */,
 				21DFB79A1BAE8B9A00A9DC68 /* AlamofireSource */,
 				5561F4DE1B8C44A500486A57 /* Resources */,
@@ -259,6 +270,7 @@
 				5561F4AB1B8C3DC700486A57 /* ViewController.swift */,
 				5561F4C91B8C3DF800486A57 /* MMMap.swift */,
 				5561F4D31B8C3EC300486A57 /* NewsScreen.swift */,
+				9D3AEECB1BAED34D00A9272E /* Booleans.swift */,
 				9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */,
 				557F66AA1B8EDC810033E4A6 /* DetailViewController.swift */,
 			);
@@ -388,7 +400,9 @@
 				5561F4B11B8C3DC700486A57 /* Images.xcassets in Resources */,
 				5561F4D71B8C448C00486A57 /* bg@2x.jpg in Resources */,
 				5561F4F11B8C577A00486A57 /* highlights.png in Resources */,
+				21B9F8E81BAF06E400668DB0 /* derp1.mp3 in Resources */,
 				9D3AEEC81BAE9BC100A9272E /* baby.wav in Resources */,
+				21DFB7BB1BAEFECA00A9DC68 /* derp.mp3 in Resources */,
 				5561F4F81B8C617E00486A57 /* sportsbg.jpg in Resources */,
 				9D3AEEC91BAE9BC100A9272E /* laugh.wav in Resources */,
 				5561F5011B8C911100486A57 /* businessbg.jpg in Resources */,
@@ -413,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21DFB7AC1BAE8B9A00A9DC68 /* ParameterEncoding.swift in Sources */,
+				9D3AEECC1BAED34D00A9272E /* Booleans.swift in Sources */,
 				5561F4AC1B8C3DC700486A57 /* ViewController.swift in Sources */,
 				557F66B51B8F1E5A0033E4A6 /* TipInCellAnimator.swift in Sources */,
 				21DFB7AE1BAE8B9A00A9DC68 /* ResponseSerialization.swift in Sources */,
@@ -422,6 +437,7 @@
 				21DFB7AB1BAE8B9A00A9DC68 /* MultipartFormData.swift in Sources */,
 				5561F4D01B8C3E7B00486A57 /* UIColor+HexRepresentation.m in Sources */,
 				5561F4E31B8C4DBD00486A57 /* JBKenBurnsView.m in Sources */,
+				9D3AEED81BAEDD4800A9272E /* SwiftyJSON.swift in Sources */,
 				21DFB7A71BAE8B9A00A9DC68 /* Alamofire.swift in Sources */,
 				21DFB7991BAE8B8000A9DC68 /* SwiftSpinner.swift in Sources */,
 				21DFB7B11BAE8B9A00A9DC68 /* Validation.swift in Sources */,

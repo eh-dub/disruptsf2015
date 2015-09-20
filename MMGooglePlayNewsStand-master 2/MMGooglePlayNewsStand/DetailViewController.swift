@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         navBut.frame=CGRectMake(0, 16, 45, 45)
         navTitle.frame=CGRectMake(55 , 20, self.view.bounds.width-50, 30)
         
+        
         navBar.backgroundColor = UIColor(hexString: "673ab7")
         navBut.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         navBut.tintColor=UIColor.whiteColor()
@@ -36,6 +37,7 @@ class DetailViewController: UIViewController {
         navTitle.textColor=UIColor.whiteColor()
         navTitle.font=UIFont(name: "Roboto-Medium", size: 20)
         navTitle.text="Detail Page"
+        
         
         navBar.addSubview(navBut)
         navBar.addSubview(navTitle)

@@ -10,12 +10,14 @@ import UIKit
 import AVFoundation
 import Foundation
 
-class AudioPage: UIViewController {
+var newId = ""
+var entities : [String!] = []
 
+class AudioPage: UIViewController {
+    
     
     @IBOutlet weak var button: UIButton!
-    var newsAudioArray: [NSURL]! = []
-    var audioPlayer = AVQueuePlayer()
+    var audioPlayer: AVAudioPlayer?
     var curIndex = -1
     var selected = false
     
@@ -29,24 +31,34 @@ class AudioPage: UIViewController {
         
         button.setImage(UIImage(named: "pauseButton"), forState: .Normal)
         button.enabled = true
+        println(newId)
+        //rewind.setImage(UIImage(named: "rewindButton"), forState: .Normal)
+        //fastforward.setImage(UIImage(named: "fastforwardButton"), forState: .Normal)
         
-        rewind.setImage(UIImage(named: "rewindButton"), forState: .Normal)
-        fastforward.setImage(UIImage(named: "fastforwardButton"), forState: .Normal)
-        
-        var coinSound1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("baby", ofType: "wav")!)
-        //NSURL(fileURLWithPath: "")
         var coinSound2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("laugh", ofType: "wav")!)
-        var coinSound3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "wav")!)
-        newsAudioArray.append(coinSound1!)
-        newsAudioArray.append(coinSound2!)
-        newsAudioArray.append(coinSound3!)
         
-        
-        audioPlayer = AVQueuePlayer(playerItem: AVPlayerItem(URL: newsAudioArray[1]))
-        didSelectAudio(audioPlayer)
+        //var derp = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("derp1", ofType: "mp3")!)
+        //audioPlayer = AVAudioPlayer(contentsOfURL: derp, error: nil)
+        //didSelectAudio(audioPlayer)
+        var newsAudioUrl = NSURL(string: "http://104.236.159.247:8181/static/wav/\(newId).mp3")
+        /*http://104.236.159.247:8181/static/wav/\(newId).mp3"*/
+        var err:NSErrorPointer = NSErrorPointer()
+        //        audioPlayer = AVAudioPlayer(contentsOfURL: newsAudioUrl, error: err)
+        var newsAudio = NSData(contentsOfURL: newsAudioUrl!)
+        //audioPlayer = AVAudioPlayer()
+        var error: NSError?
+        audioPlayer = AVAudioPlayer(contentsOfURL: newsAudioUrl, error: &error)
+        audioPlayer?.prepareToPlay()
+        println(error)
+        //audioPlayer.rate = 1.0
+        //audioPlayer.volume = 1.0
+        //audioPlayer.play()
+        didSelectAudio(audioPlayer!)
     }
     
-    func didSelectAudio(audio: AVQueuePlayer){
+    func didSelectAudio(audio: AVAudioPlayer){
+        audio.rate = 1.0
+        audio.volume = 1.0
         audio.play()
     }
     
@@ -59,27 +71,47 @@ class AudioPage: UIViewController {
         
         if (selected == true) {
             selected = false
-            audioPlayer.play()
+            audioPlayer?.play()
             button.setImage(UIImage(named: "pauseButton"), forState: .Normal)
             
         } else {
             selected = true
-            audioPlayer.pause()
+            audioPlayer?.pause()
             button.setImage(UIImage(named: "playButton"), forState: .Normal)
         }
         
     }
     
+    @IBAction func findMoreArticles(sender: AnyObject){
+        
+        println(first3Entities)
+        //println(entities)
+        
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "displayEntities")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    @IBAction func back(sender: AnyObject) {
+        audioPlayer?.pause()
+    }
     @IBAction func decreaseRate(sender: AnyObject) {
-        if(audioPlayer.rate - 1 > 0){
-            audioPlayer.rate = audioPlayer.rate - 1
+        
+        if let audioPlayer = audioPlayer {
+            
+            
+            if(audioPlayer.rate - 1 > 0){
+                audioPlayer.rate = audioPlayer.rate - 1
+            }
         }
     }
     @IBAction func increaseRate(sender: AnyObject) {
-        if(audioPlayer.rate + 1 < 4){
-            audioPlayer.rate = audioPlayer.rate + 1
+        if let audioPlayer = audioPlayer {
+            
+            
+            if(audioPlayer.rate - 1 > 0){
+                audioPlayer.rate = audioPlayer.rate - 1
+            }
         }
     }
     
-
+    
 }

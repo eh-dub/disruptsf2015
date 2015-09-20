@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController,MMPlayPageControllerDelegate {
+var first3Entities : [String] = []
+
+class ViewController: UIViewController,MMPlayPageControllerDelegate, UITextFieldDelegate {
 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var textField: UITextField!
@@ -24,7 +26,6 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         textField.attributedPlaceholder = NSAttributedString(string:"Username",
             attributes:[NSForegroundColorAttributeName: UIColor.lightTextColor()])
         textField.textColor = UIColor.grayColor()
-        
        
     }
 
@@ -57,38 +58,44 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // Attach the pages to the master
         appDelegate.walkthrough?.delegate = self
         appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_zero, title: title_1, color: UIColor(hexString: "9c27b0"))
-        /*
-        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_one, title: "Sports", color:UIColor(hexString: "009688"))
-       
-        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_two, title: "Entertainment", color:UIColor(hexString: "673ab7"))
-        
-
-        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_three, title: "Technology", color: UIColor(hexString: "ff9800"))
-        
-         appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_four, title: "Business", color: UIColor(hexString: "03a9f4"))
-        
-        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_five, title: "World", color: UIColor(hexString: "4caf50"))
-        */
 
     }
 
     @IBAction func showDemoAction(sender: AnyObject) {
         SwiftSpinner.show("Loading...", animated: true)
         request(.GET, "http://104.236.159.247:8181/top", parameters: ["term": self.textField.text]).responseJSON {
-            (request, response, JSON, error) in
+            (request, response, json, error) in
             
-            for(var i = 0; i < 2; i++)
+            var json = JSON(json!);
+            let count = json.arrayValue.count
+            for i in 0..<count
             {
-                var thing = JSON![i]!["title"]!
-                titleToPass.append("\(thing!)")
+                var subjson = json.arrayValue[i]
+                
+                var title = subjson["title"].stringValue
+                var entitieValues: [String] = subjson["entities"].arrayValue.map{ $0.stringValue}
+                first3Entities = Array(entitieValues[0..<3])
+                //entities.append(first3Entities)
+                
+                var id: String = subjson["id"].stringValue
+                
+                titleToPass.append(title)
+                entityToPass += first3Entities
+                idToPass.append(id)
             }
             //title1 = self.textField.text
             title_1 = self.textField.text
             SwiftSpinner.hide()
             self.initPlayStand()
-            
+        
         }
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.textField.endEditing(true)
+        return true
+    }
+    
     
     
 }
