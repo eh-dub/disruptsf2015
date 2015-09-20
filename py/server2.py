@@ -1,0 +1,70 @@
+from bottle import route, run, template, request, response
+import requests, json
+
+# https://alchemyapi.readme.io/v1.0/docs/rest-api-documentation
+
+ApiKey = '85e62ad889b1b15314bb96cf6387592215231fc5'
+MaxResults = 2
+Pfx = 'https://gateway-a.watsonplatform.net'
+    
+@route('/topx')
+def _():
+    max_results = request.params.get('max',MaxResults)
+    term = request.params.get('term','Bernie+Sanders')
+    #term = request.params.get('term','Apple')
+    print max_results
+    url = (Pfx + '/calls/data/GetNews?outputMode=json&start=now-1d&end=now&'+
+           'count=5&'+
+           'q.enriched.url.enrichedTitle.entities.entity=|text=%s|&'+
+           'return=enriched.url.url,enriched.url.title,enriched.url.text&'+
+           'maxResults=%s&apikey=%s') % (term,max_results,ApiKey,)
+    r = requests.get(url, verify=False)
+    #print r.text
+    j = r.json()
+    print '='*40
+    print j
+    print '='*40
+    print j["result"]
+    print '='*40
+    print j["result"]["docs"]
+    lst = j["result"]["docs"]
+    arr = []
+    print '='*40
+    for x in lst:
+        #print "X", x
+        #print "-", x["source"]["enriched"]["url"]
+        u = x["source"]["enriched"]["url"]
+        print u["title"]
+        print '.', u["text"]
+        #    print "-", x["source"]["enriched"]["url"]["title"]
+        #    arr.append( x["source"]["enriched"]["url"]["title"] )
+        pass
+    print '='*40
+    print arr
+    ' r["result"]["docs"] '
+    return dict(result=arr)
+
+@route('/news')
+def _():
+    ret = []
+    max_results = request.params.get('xxx',MaxResults)
+    print max_results
+    url = "https://gateway-a.watsonplatform.net/calls/data/GetNews?apikey=%s&outputMode=json&start=now-1d&end=now&maxResults=%s&q.enriched.url.enrichedTitle.relations.relation=|action.verb.text=acquire,object.entities.entity.type=Company|&return=enriched.url.title" % (ApiKey,max_results)
+    resp = requests.get(url, verify=False)
+    print resp
+    j = resp.json()
+    print j
+    print json.dumps(j)
+    j2 = json.dumps(j, indent=5)
+    print j2
+    return [ j2 ]
+
+@route('/')
+def index():
+    return ["BLAH"]
+
+@route('/hello/<name>')
+def hello(name):
+    return template('<b>Hello {{name}}</b>!', name=name)
+
+run(host='', port=8181)
