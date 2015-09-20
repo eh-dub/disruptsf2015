@@ -1,34 +1,36 @@
-//
-//  ViewController.swift
-//  MMGooglePlayNewsStand
-//
-//  Created by mukesh mandora on 25/08/15.
-//  Copyright (c) 2015 madapps. All rights reserved.
-//
+
 
 import UIKit
 
-var first3Entities : [String] = []
+var entities: [[String]] = []
+var currentEntite: [String] = []
+var titleToPass : [String] = []
 
-class ViewController: UIViewController,MMPlayPageControllerDelegate {
-let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+class ViewController: UIViewController, MMPlayPageControllerDelegate {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var textField: UITextField!
-
+    var viewController: UIViewController?
+    
     @IBOutlet weak var showDemoBut: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        initPlayStand()
+        //        initPlayStand()
+        
+        viewController = self
         
         UITextField.appearance().textColor = UIColor.blackColor();
         
         textField.attributedPlaceholder = NSAttributedString(string:"Username",
             attributes:[NSForegroundColorAttributeName: UIColor.lightTextColor()])
         textField.textColor = UIColor.grayColor()
-       
+        
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,12 +60,56 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // Attach the pages to the master
         appDelegate.walkthrough?.delegate = self
         appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_zero, title: title_1, color: UIColor(hexString: "9c27b0"))
-
+        /*
+        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_one, title: "Sports", color:UIColor(hexString: "009688"))
+        
+        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_two, title: "Entertainment", color:UIColor(hexString: "673ab7"))
+        
+        
+        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_three, title: "Technology", color: UIColor(hexString: "ff9800"))
+        
+        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_four, title: "Business", color: UIColor(hexString: "03a9f4"))
+        
+        appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_five, title: "World", color: UIColor(hexString: "4caf50"))
+        */
+        
     }
-
+    
     @IBAction func showDemoAction(sender: AnyObject) {
-        SwiftSpinner.show("Loading...", animated: true)
+        var dataHelper = DataHelper()
+        initializeView(self.textField.text)
+        
+        /*SwiftSpinner.show("Loading...", animated: true)
         request(.GET, "http://104.236.159.247:8181/top", parameters: ["term": self.textField.text]).responseJSON {
+        (request, response, json, error) in
+        
+        var json = JSON(json!);
+        let count = json.arrayValue.count
+        for i in 0..<count
+        {
+        var subjson = json.arrayValue[i]
+        
+        var title = subjson["title"].stringValue
+        var entitieValues: [String] = subjson["entities"].arrayValue.map{ $0.stringValue}
+        var first3Entities = Array(entitieValues[0..<3])
+        entities.append(first3Entities)
+        
+        //var id: String = subjson["id"].stringValue
+        
+        titleToPass.append(title)
+        //idToPass.append(id)
+        }
+        //title1 = self.textField.text
+        title_1 = self.textField.text
+        SwiftSpinner.hide()
+        self.initPlayStand()
+        
+        }*/
+    }
+    
+    func initializeView(keyText: String){
+        SwiftSpinner.show("Loading...", animated: true)
+        request(.GET, "http://104.236.159.247:8181/top", parameters: ["term": keyText]).responseJSON {
             (request, response, json, error) in
             
             var json = JSON(json!);
@@ -74,24 +120,25 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 
                 var title = subjson["title"].stringValue
                 var entitieValues: [String] = subjson["entities"].arrayValue.map{ $0.stringValue}
-                first3Entities = Array(entitieValues[0..<3])
-                //entities.append(first3Entities)
+                var first3Entities = Array(entitieValues[0..<count - 1])
+                entities.append(first3Entities)
                 
-                var id: String = subjson["id"].stringValue
+                //var id: String = subjson["id"].stringValue
                 
                 titleToPass.append(title)
-                entityToPass += first3Entities
-                idToPass.append(id)
+                //idToPass.append(id)
             }
             //title1 = self.textField.text
-            title_1 = self.textField.text
+            title_1 = keyText
             SwiftSpinner.hide()
+            
+            
             self.initPlayStand()
-        
+            
+            
         }
+        
     }
     
     
-    
 }
-

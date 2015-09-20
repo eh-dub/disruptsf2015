@@ -8,4 +8,3 @@
 
 import Foundation
 
-var displayEntities = NSUserDefaults.standardUserDefaults().boolForKey("displayEntities")
