@@ -54,6 +54,10 @@
 		557F66B11B8F02D80033E4A6 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 557F66B01B8F02D80033E4A6 /* back.png */; };
 		557F66B51B8F1E5A0033E4A6 /* TipInCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F66B41B8F1E5A0033E4A6 /* TipInCellAnimator.swift */; };
 		5585D5CD1B8DC4A400DB7D3F /* newststand.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5585D5CC1B8DC4A400DB7D3F /* newststand.gif */; };
+		9D3AEEC81BAE9BC100A9272E /* baby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC51BAE9BC100A9272E /* baby.wav */; };
+		9D3AEEC91BAE9BC100A9272E /* laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC61BAE9BC100A9272E /* laugh.wav */; };
+		9D3AEECA1BAE9BC100A9272E /* fart.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC71BAE9BC100A9272E /* fart.wav */; };
+		9DD3F5F11BAE99690052C7D2 /* AudioPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,10 @@
 		557F66B01B8F02D80033E4A6 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		557F66B41B8F1E5A0033E4A6 /* TipInCellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInCellAnimator.swift; sourceTree = "<group>"; };
 		5585D5CC1B8DC4A400DB7D3F /* newststand.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = newststand.gif; sourceTree = "<group>"; };
+		9D3AEEC51BAE9BC100A9272E /* baby.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = baby.wav; sourceTree = "<group>"; };
+		9D3AEEC61BAE9BC100A9272E /* laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laugh.wav; sourceTree = "<group>"; };
+		9D3AEEC71BAE9BC100A9272E /* fart.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fart.wav; sourceTree = "<group>"; };
+		9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPage.swift; path = ../AudioPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,9 @@
 				5561F4AD1B8C3DC700486A57 /* Main.storyboard */,
 				5561F4B01B8C3DC700486A57 /* Images.xcassets */,
 				5561F4B21B8C3DC700486A57 /* LaunchScreen.xib */,
+				9D3AEEC51BAE9BC100A9272E /* baby.wav */,
+				9D3AEEC61BAE9BC100A9272E /* laugh.wav */,
+				9D3AEEC71BAE9BC100A9272E /* fart.wav */,
 				5561F4A71B8C3DC700486A57 /* Supporting Files */,
 				5561F4CB1B8C3E7A00486A57 /* MMGooglePlayNewsStand-Bridging-Header.h */,
 			);
@@ -248,6 +259,7 @@
 				5561F4AB1B8C3DC700486A57 /* ViewController.swift */,
 				5561F4C91B8C3DF800486A57 /* MMMap.swift */,
 				5561F4D31B8C3EC300486A57 /* NewsScreen.swift */,
+				9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */,
 				557F66AA1B8EDC810033E4A6 /* DetailViewController.swift */,
 			);
 			name = Controller;
@@ -358,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5561F4FD1B8C7B5300486A57 /* Roboto-Medium.ttf in Resources */,
+				9D3AEECA1BAE9BC100A9272E /* fart.wav in Resources */,
 				5561F4E91B8C548300486A57 /* tech.png in Resources */,
 				5561F4AF1B8C3DC700486A57 /* Main.storyboard in Resources */,
 				5561F4F91B8C617E00486A57 /* worldbg.jpg in Resources */,
@@ -375,7 +388,9 @@
 				5561F4B11B8C3DC700486A57 /* Images.xcassets in Resources */,
 				5561F4D71B8C448C00486A57 /* bg@2x.jpg in Resources */,
 				5561F4F11B8C577A00486A57 /* highlights.png in Resources */,
+				9D3AEEC81BAE9BC100A9272E /* baby.wav in Resources */,
 				5561F4F81B8C617E00486A57 /* sportsbg.jpg in Resources */,
+				9D3AEEC91BAE9BC100A9272E /* laugh.wav in Resources */,
 				5561F5011B8C911100486A57 /* businessbg.jpg in Resources */,
 				5561F4EB1B8C54AB00486A57 /* movie.png in Resources */,
 				5585D5CD1B8DC4A400DB7D3F /* newststand.gif in Resources */,
@@ -414,6 +429,7 @@
 				5561F4CA1B8C3DF800486A57 /* MMMap.swift in Sources */,
 				21DFB7AD1BAE8B9A00A9DC68 /* Request.swift in Sources */,
 				21DFB7A81BAE8B9A00A9DC68 /* Download.swift in Sources */,
+				9DD3F5F11BAE99690052C7D2 /* AudioPage.swift in Sources */,
 				21DFB7B01BAE8B9A00A9DC68 /* Upload.swift in Sources */,
 				5561F4D11B8C3E7B00486A57 /* UIView+MaterialDesign.m in Sources */,
 				557F66A91B8EDB240033E4A6 /* TransitionModel.swift in Sources */,

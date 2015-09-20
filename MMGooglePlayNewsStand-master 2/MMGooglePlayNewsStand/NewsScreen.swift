@@ -15,7 +15,7 @@ import UIKit
     @objc optional func getframeindexpathOfController()->CGRect
 }
 
-var titleToPass : [String!] = [""]
+var titleToPass : [String!] = ["Sanders, Clinton trade shots over educational plans. | CNN"]
 var title_1 : String = ""
 
 class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate{
@@ -159,6 +159,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("moveToAudioPage", sender: self)
         //Patrick, this is where you segue to the audio.
         /*
         let detail = self.storyboard?.instantiateViewControllerWithIdentifier("detail") as! DetailViewController
