@@ -1,4 +1,4 @@
-from bottle import route, run, template, request, response
+from bottle import route, run, template, request, response, static_file
 import requests, json
 
 # https://alchemyapi.readme.io/v1.0/docs/rest-api-documentation
@@ -6,6 +6,29 @@ import requests, json
 ApiKey = '85e62ad889b1b15314bb96cf6387592215231fc5'
 MaxResults = 2
 Pfx = 'https://gateway-a.watsonplatform.net'
+
+#@route('/images/<filename:re:.*\.png>')
+#def send_image(filename):
+#    return static_file(filename, root='/path/to/image/files', mimetype='image/png')
+
+#@route('/static/<path:path>')
+#def callback(path):
+#    return static_file(path, ...)
+
+
+def saveit(outfile,text):
+    import os
+    text = text.replace('"','')
+    cmd = """curl -k -u 474bf77c-0e50-4aca-a1ce-b3100f217aec:Nql0dzKQToEv  --header 'Content-Type: application/json'  --header 'Accept: audio/wav'  --data '{\"text\":\"\
+%s\"}'  'https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize' >static/wav/%s""" % ( text, outfile, )
+    print "CMD", cmd
+    os.system( cmd )
+    pass
+
+
+@route('/static/<filename:path>')
+def send_static(filename):
+    return static_file(filename, root='./static/')
     
 @route('/top')
 def _():
