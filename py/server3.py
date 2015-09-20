@@ -1,5 +1,5 @@
 from bottle import route, run, template, request, response, static_file
-import requests, json
+import requests, json, bottle
 
 # https://alchemyapi.readme.io/v1.0/docs/rest-api-documentation
 
@@ -76,9 +76,9 @@ def _():
     ' r["result"]["docs"] '
     r = dict(result=arr)
     r2 = json.dumps( r, indent = 5 )
-    print '*'*40
+    print '*'*40, 10
     print r2
-    print '*'*40
+    print '*'*40, 99
     #return ["hellooo"]
     return [r2]
 
@@ -105,4 +105,10 @@ def index():
 def hello(name):
     return template('<b>Hello {{name}}</b>!', name=name)
 
-run(host='', port=8282)
+#run(host='', port=8282)
+from gevent.pywsgi import WSGIServer
+from geventwebsocket import WebSocketError
+from geventwebsocket.handler import WebSocketHandler
+server = WSGIServer(("0.0.0.0", 8282), bottle.app(),
+                    handler_class=WebSocketHandler)
+server.serve_forever()
