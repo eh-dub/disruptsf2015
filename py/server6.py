@@ -17,7 +17,6 @@ def saveit(outfile,text):
 
 @route('/static/<filename:path>')
 def send_static(filename):
-    return bottle.redirect('/static/index.html')
     return static_file(filename, root='./static/')
     
 @route('/top')
@@ -88,6 +87,7 @@ def _():
 
 @route('/')
 def index():
+    return bottle.redirect('/static/index.html')
     return ["BLAH"]
 
 @route('/hello/<name>')
