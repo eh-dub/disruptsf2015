@@ -17,11 +17,14 @@ Pfx = 'https://gateway-a.watsonplatform.net'
 
 
 def saveit(outfile,text):
+    print "SAVE IT"
     import os
     text = text.replace('"','')
-    cmd = """curl -k -u 474bf77c-0e50-4aca-a1ce-b3100f217aec:Nql0dzKQToEv  --header 'Content-Type: application/json'  --header 'Accept: audio/wav'  --data '{\"text\":\"\
-%s\"}'  'https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize' >static/wav/%s""" % ( text, outfile, )
+    cmd = """curl -k -u 474bf77c-0e50-4aca-a1ce-b3100f217aec:Nql0dzKQToEv  --header 'Content-Type: application/json'  --header 'Accept: audio/wav'  --data '{\"text\":\"%s\"}'  'https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize' >static/wav/%s""" % ( text, outfile, )
     print "CMD", cmd
+    print "---CMD"
+    print "---CMD"
+    print "---CMD"
     os.system( cmd )
     pass
 
@@ -68,6 +71,15 @@ def _():
 
         #arr.append( dict( id=id, title=title, text=text ) )
         arr.append( dict( id=id, title=title ) )
+
+        #print "TEXT", text[:1024]
+
+        try:
+            saveit( id, text )
+            pass
+        except:
+            print "FAIL", id, text
+        #arr.append( dict( id=id, title=title ) )
 
         #arr.append( rec["title"] )
         pass

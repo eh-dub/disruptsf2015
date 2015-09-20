@@ -31,6 +31,7 @@ def _():
     lst = j["result"]["docs"]
     arr = []
     print '='*40
+    arr2 = []
     for x in lst:
         print "X", x['id']
         id = x['id']
@@ -46,15 +47,20 @@ def _():
         #arr.append( dict( id=id, title=title, text=text ) )
         arr.append( dict( id=id, title=title ) )
 
+        arr2.append( id )
+        arr2.append( title )
+
         #arr.append( rec["title"] )
         pass
     print '='*40
     print arr
     ' r["result"]["docs"] '
     r = dict(result=arr)
-    r2 = json.dumps( r, indent = 5 )
+    r2 = json.dumps( arr2, indent = 5 )
+    return [r2]
     print '*'*40
-    print r2
+    print r
+    return r
     print '*'*40
     #return ["hellooo"]
     return [r2]
