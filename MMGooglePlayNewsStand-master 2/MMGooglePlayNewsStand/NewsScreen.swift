@@ -15,7 +15,10 @@ import UIKit
     @objc optional func getframeindexpathOfController()->CGRect
 }
 
-var titleToPass : [String!] = ["Sanders, Clinton trade shots over educational plans. | CNN"]
+var titleToPass : [String] = []
+var idToPass : [String] = []
+var entityToPass : [String] = []
+
 var title_1 : String = ""
 
 class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate{
@@ -38,9 +41,9 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         self.tableView.delegate=self;
         self.tableView.dataSource=self;
         self.tableView.decelerationRate=UIScrollViewDecelerationRateFast
-        header.frame=CGRectMake(0, 0, self.view.frame.width, 200);
-        headerImage.frame=CGRectMake(header.center.x-30, header.center.y-30, 60, 60)
-        headerImage.layer.cornerRadius=headerImage.frame.width/2
+        header.frame=CGRectMake(0, 0, self.view.frame.width, 250);
+        //headerImage.frame=CGRectMake(header.center.x-30, header.center.y-30, 60, 60)
+        //headerImage.layer.cornerRadius=headerImage.frame.width/2
         
         
        
@@ -88,9 +91,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         //header Color
   
         switch ( tag){
-        case 1:
-             headerImage.backgroundColor=UIColor(hexString: "9c27b0")
-            headerImage.image=UIImage(named: "highlights")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        case 1:  
             break
             
         case 2:
@@ -151,7 +152,16 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:NewsCellTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! NewsCellTableViewCell
         //cell.useText(indexPath.row + 1)
-        cell.titleNews.text = titleToPass[indexPath.row]
+        if(NSUserDefaults.standardUserDefaults().boolForKey("displayEntities") == true)
+        {
+            //cell.titleNews.text = entities[indexPath.row]
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "displayEntities")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        else
+        {
+            cell.titleNews.text = titleToPass[indexPath.row]
+        }
         //cell.headerImage.image=imageArr[indexPath.row]
         
         return cell
@@ -159,6 +169,8 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        newId = idToPass[indexPath.row]
+        entities.append(entityToPass[indexPath.row])
         self.performSegueWithIdentifier("moveToAudioPage", sender: self)
         //Patrick, this is where you segue to the audio.
         /*

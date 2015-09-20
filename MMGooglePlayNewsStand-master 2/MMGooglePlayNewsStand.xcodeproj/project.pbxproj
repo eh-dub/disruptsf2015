@@ -57,6 +57,8 @@
 		9D3AEEC81BAE9BC100A9272E /* baby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC51BAE9BC100A9272E /* baby.wav */; };
 		9D3AEEC91BAE9BC100A9272E /* laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC61BAE9BC100A9272E /* laugh.wav */; };
 		9D3AEECA1BAE9BC100A9272E /* fart.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AEEC71BAE9BC100A9272E /* fart.wav */; };
+		9D3AEECC1BAED34D00A9272E /* Booleans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3AEECB1BAED34D00A9272E /* Booleans.swift */; };
+		9D3AEED81BAEDD4800A9272E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3AEED71BAEDD4800A9272E /* SwiftyJSON.swift */; };
 		9DD3F5F11BAE99690052C7D2 /* AudioPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +132,8 @@
 		9D3AEEC51BAE9BC100A9272E /* baby.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = baby.wav; sourceTree = "<group>"; };
 		9D3AEEC61BAE9BC100A9272E /* laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laugh.wav; sourceTree = "<group>"; };
 		9D3AEEC71BAE9BC100A9272E /* fart.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fart.wav; sourceTree = "<group>"; };
+		9D3AEECB1BAED34D00A9272E /* Booleans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booleans.swift; sourceTree = "<group>"; };
+		9D3AEED71BAEDD4800A9272E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPage.swift; path = ../AudioPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				5585D5CC1B8DC4A400DB7D3F /* newststand.gif */,
+				9D3AEED71BAEDD4800A9272E /* SwiftyJSON.swift */,
 				21DFB7981BAE8B8000A9DC68 /* SwiftSpinner.swift */,
 				21DFB79A1BAE8B9A00A9DC68 /* AlamofireSource */,
 				5561F4DE1B8C44A500486A57 /* Resources */,
@@ -259,6 +264,7 @@
 				5561F4AB1B8C3DC700486A57 /* ViewController.swift */,
 				5561F4C91B8C3DF800486A57 /* MMMap.swift */,
 				5561F4D31B8C3EC300486A57 /* NewsScreen.swift */,
+				9D3AEECB1BAED34D00A9272E /* Booleans.swift */,
 				9DD3F5F01BAE99690052C7D2 /* AudioPage.swift */,
 				557F66AA1B8EDC810033E4A6 /* DetailViewController.swift */,
 			);
@@ -413,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21DFB7AC1BAE8B9A00A9DC68 /* ParameterEncoding.swift in Sources */,
+				9D3AEECC1BAED34D00A9272E /* Booleans.swift in Sources */,
 				5561F4AC1B8C3DC700486A57 /* ViewController.swift in Sources */,
 				557F66B51B8F1E5A0033E4A6 /* TipInCellAnimator.swift in Sources */,
 				21DFB7AE1BAE8B9A00A9DC68 /* ResponseSerialization.swift in Sources */,
@@ -422,6 +429,7 @@
 				21DFB7AB1BAE8B9A00A9DC68 /* MultipartFormData.swift in Sources */,
 				5561F4D01B8C3E7B00486A57 /* UIColor+HexRepresentation.m in Sources */,
 				5561F4E31B8C4DBD00486A57 /* JBKenBurnsView.m in Sources */,
+				9D3AEED81BAEDD4800A9272E /* SwiftyJSON.swift in Sources */,
 				21DFB7A71BAE8B9A00A9DC68 /* Alamofire.swift in Sources */,
 				21DFB7991BAE8B8000A9DC68 /* SwiftSpinner.swift in Sources */,
 				21DFB7B11BAE8B9A00A9DC68 /* Validation.swift in Sources */,

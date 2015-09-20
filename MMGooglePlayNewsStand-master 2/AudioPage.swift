@@ -10,11 +10,13 @@ import UIKit
 import AVFoundation
 import Foundation
 
+var newId = ""
+var entities : [String!] = []
+
 class AudioPage: UIViewController {
 
     
     @IBOutlet weak var button: UIButton!
-    var newsAudioArray: [NSURL]! = []
     var audioPlayer = AVQueuePlayer()
     var curIndex = -1
     var selected = false
@@ -33,16 +35,10 @@ class AudioPage: UIViewController {
         rewind.setImage(UIImage(named: "rewindButton"), forState: .Normal)
         fastforward.setImage(UIImage(named: "fastforwardButton"), forState: .Normal)
         
-        var coinSound1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("baby", ofType: "wav")!)
-        //NSURL(fileURLWithPath: "")
+        
         var coinSound2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("laugh", ofType: "wav")!)
-        var coinSound3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "wav")!)
-        newsAudioArray.append(coinSound1!)
-        newsAudioArray.append(coinSound2!)
-        newsAudioArray.append(coinSound3!)
         
-        
-        audioPlayer = AVQueuePlayer(playerItem: AVPlayerItem(URL: newsAudioArray[1]))
+        audioPlayer = AVQueuePlayer(playerItem: AVPlayerItem(URL: coinSound2))
         didSelectAudio(audioPlayer)
     }
     
@@ -70,6 +66,18 @@ class AudioPage: UIViewController {
         
     }
     
+    @IBAction func findMoreArticles(sender: AnyObject){
+        
+        println(first3Entities)
+        
+        //println(entities)
+        
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "displayEntities")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    @IBAction func back(sender: AnyObject) {
+        audioPlayer.pause()
+    }
     @IBAction func decreaseRate(sender: AnyObject) {
         if(audioPlayer.rate - 1 > 0){
             audioPlayer.rate = audioPlayer.rate - 1
