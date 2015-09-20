@@ -38,14 +38,29 @@ def _():
         #print "-", x["source"]["enriched"]["url"]
         rec = x["source"]["enriched"]["url"]
         title = unicode(rec["title"])
-        title.encode('ascii','ignore')
+        title = title.encode('ascii','ignore')
         text  = unicode(rec["text"])
-        text.encode('ascii','ignore')
+        text = text.encode('ascii','ignore')
         print '.', rec["text"]
         #    print "-", x["source"]["enriched"]["url"]["title"]
+        
+        url2  = unicode(rec["url"])
+
+        print "URl2", url2
+
+        if 'tumblr' in url2:
+            continue
+        if 'twitter' in url2:
+            continue
+
+        #if 'Optional' in title:
+        #    continue
+
+        #sarr = title.split(':')
+        #title = ':'.join ( sarr[:-1] )
 
         #arr.append( dict( id=id, title=title, text=text ) )
-        arr.append( dict( id=id, title=title ) )
+        arr.append( dict( id=id, title=title, url2=url2 ) )
 
         arr2.append( id )
         arr2.append( title )
@@ -56,7 +71,8 @@ def _():
     print arr
     ' r["result"]["docs"] '
     r = dict(result=arr)
-    r2 = json.dumps( arr2, indent = 5 )
+    r2 = json.dumps( arr2[:3], indent = 5 )
+    r2 = json.dumps( arr, indent = 5 )
     return [r2]
     print '*'*40
     print r
