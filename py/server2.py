@@ -12,6 +12,9 @@ def _():
     response.headers['Access-Control-Allow-Origin'] = '*'
     max_results = request.params.get('max',MaxResults)
     term = request.params.get('term','Bernie+Sanders')
+
+    term = term.replace('%20','+')
+
     #term = request.params.get('term','Apple')
     print max_results
     url = (Pfx + '/calls/data/GetNews?outputMode=json&start=now-1d&end=now&'+
