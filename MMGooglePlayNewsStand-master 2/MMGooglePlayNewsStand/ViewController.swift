@@ -10,11 +10,7 @@ import UIKit
 
 var first3Entities : [String] = []
 
-<<<<<<< HEAD
-class ViewController: UIViewController,MMPlayPageControllerDelegate, UITextFieldDelegate {
-=======
 class ViewController: UIViewController,MMPlayPageControllerDelegate {
->>>>>>> origin/master
 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var textField: UITextField!
@@ -30,11 +26,6 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         textField.attributedPlaceholder = NSAttributedString(string:"Username",
             attributes:[NSForegroundColorAttributeName: UIColor.lightTextColor()])
         textField.textColor = UIColor.grayColor()
-<<<<<<< HEAD
-=======
-        
-        
->>>>>>> origin/master
        
     }
 
@@ -98,11 +89,6 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             self.initPlayStand()
         
         }
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.textField.endEditing(true)
-        return true
     }
     
     
